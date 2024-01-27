@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# This script mounts the "Backup" drive for Carbon Copy Cloner's scheduled nightly backup routine. 
+# The drive will be automatically unmounted after the backup task completes.
+diskutil mount "Backup"

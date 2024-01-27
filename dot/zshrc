@@ -1,0 +1,71 @@
+export CLICOLOR=1
+
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PROMPT_SUBST
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_TO_HOME
+
+function prompt_git_info() {
+  local result=$(git branch 2> /dev/null --show-current)
+  if [[ -z $result ]] then
+    echo ""
+  else
+    echo " %F{13}${result}%f"
+  fi
+}
+
+export PROMPT='%F{5}%~%f$(prompt_git_info) '
+
+alias e=$EDITOR
+alias ll="ls -la"
+
+# Switch the working directory to the named project directory.
+function gp() {
+  local destination="${HOME}/Developer/${1}"
+  if [[ -d $destination ]] then
+    cd "${destination}"
+  else
+    echo "'${1}': project not found"
+  fi
+}
+
+# "git status" if no args, otherwise acts like git.
+function g() {
+  if [[ $# -eq 0 ]]
+  then
+    git status -sb
+  else
+    git $*
+  fi
+}
+
+# Sync Neovim plugins via Lazy.nvim and regenerate helptags.
+function nvimsync() {
+  nvim --headless "+Lazy! sync" +qa "+helptags ALL"
+}
+
+# Load the completions installed by brew.
+# Modifications to FPATH must be done before compinit.
+if which brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+autoload -Uz compinit && compinit
+compdef g=git
+compdef _gp_options gp
+function _gp_options() {
+  # Grab the base name (:t) of all the directories (/) in the project folder.
+  # The / is known as a glob qualifier and the :t is a pathname modifier.
+  local -a projects=(~/Developer/*(/:t))
+  compadd -a projects
+}
+
+# Enable iTerm shell integration.
+source ~/.iterm2_shell_integration.zsh
+
+# Enable vi keymaps in zle, but make backspace able to delete past the insertion point.
+bindkey -v
+bindkey -v '^?' backward-delete-char
+
