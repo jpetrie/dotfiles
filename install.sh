@@ -82,7 +82,10 @@ do
   printf "Linked $link to $actual\n"
 done
 
-# Set up macOS options. Some changes won't be visible until process restart or logging out.
+# Set up macOS options. Some changes won't be visible until processes restart.
+# Sidebar icon size (medium).
+defaults_write "NSGlobalDomain" "NSTableViewDefaultSizeMode" "int" "2"
+
 # Dock and window management settings.
 defaults_write "com.apple.dock" "orientation" "string" "left"
 defaults_write "com.apple.dock" "mineffect" "string" "scale"
