@@ -1,0 +1,20 @@
+[user]
+  name = Josh Petrie
+  email = josh@joshpetrie.net
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK2G7NHXrGa8mNi9fxeco9Zc5vg4IXk/W/9Ol05KgtOW
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+[init]
+  defaultBranch = main
+[commit]
+  gpgsign = true
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
