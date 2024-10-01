@@ -3,7 +3,18 @@ return {
     "stevearc/resession.nvim",
     config = function()
       local resession = require("resession")
-      resession.setup({})
+      resession.setup({
+        buf_filter = function(buffer)
+          -- Do not save the filetypes in this list to the session.
+          local skip = {"gitcommit", "help"}
+          if vim.list_contains(skip, vim.bo[buffer].filetype) then
+            return false
+          end
+
+          -- For everything not explicitly skipped, fall back to the default behavior.
+          return resession.default_buf_filter(buffer)
+        end,
+      })
 
       -- Setup automatic save/load of directory-based sessions.
       vim.api.nvim_create_autocmd("VimEnter", {
