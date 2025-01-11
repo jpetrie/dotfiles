@@ -68,6 +68,3 @@ function _gp_options() {
   compadd -a projects
 }
 
-# Load iTerm shell integration.
-source "${HOME}/.iterm2_shell_integration.zsh"
-
