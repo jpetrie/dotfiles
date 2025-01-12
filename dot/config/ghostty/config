@@ -1,2 +1,5 @@
+window-width = 160
+window-height = 40
+
 theme = light:light,dark:dark
 
