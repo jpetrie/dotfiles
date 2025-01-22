@@ -8,6 +8,13 @@ vim.opt.listchars = "eol:¬,tab:>-,space:·,multispace:|·,extends:▶,precedes:
 
 vim.opt.statusline = "%!v:lua.BuildStatusLine()"
 
+-- Reconfigure the right-click popup menu.
+vim.cmd("aunmenu PopUp.Inspect")
+vim.cmd("aunmenu PopUp.-1-")
+vim.cmd("aunmenu PopUp.How-to\\ disable\\ mouse")
+vim.cmd("anoremenu PopUp.-1- <Nop>")
+vim.cmd("anoremenu PopUp.Inspect <Cmd>Inspect<CR>")
+
 function BuildStatusLine()
   local window = vim.g.statusline_winid
   local buffer = vim.api.nvim_win_get_buf(window)
