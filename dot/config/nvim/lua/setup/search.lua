@@ -5,7 +5,12 @@ return {
     "nvim-telescope/telescope.nvim",
     config = function()
       local telescope = require("telescope")
-      telescope.setup({})
+      telescope.setup({
+        defaults = {
+          layout_strategy = "vertical",
+          layout_config = {height = 0.95}
+        }
+      })
       telescope.load_extension("fzf")
 
       local builtin = require("telescope.builtin")
