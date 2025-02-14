@@ -29,6 +29,14 @@ function BuildStatusLine()
   if window == vim.api.nvim_get_current_win() then
     table.insert(parts, "%l:%v%=")
 
+    local overseer = package.loaded["overseer"]
+    if overseer ~= nil then
+      local tasks = overseer.list_tasks({status = overseer.STATUS.RUNNING})
+      if #tasks > 0 then
+        table.insert(parts, "⠶" .. #tasks .. " ")
+      end
+    end
+
     local schematic = package.loaded["schematic"]
     if schematic ~= nil then
       local project = schematic.project()
