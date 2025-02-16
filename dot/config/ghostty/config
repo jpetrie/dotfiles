@@ -1,5 +1,7 @@
-window-width = 160
-window-height = 40
+font-feature=-calt
 
 theme = light:light,dark:dark
+
+window-width = 160
+window-height = 40
 
