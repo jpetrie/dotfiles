@@ -35,7 +35,12 @@ return {
             overseer.run_template({name = "build"})
           end,
           run = function(_)
-            overseer.run_template({name = "run"})
+            overseer.run_template({name = "run", autostart = false}, function(task)
+              if task then
+                task:add_component({"dependencies", task_names = {"build"}, sequential = true})
+                task:start()
+              end
+            end)
           end,
         }
       })
