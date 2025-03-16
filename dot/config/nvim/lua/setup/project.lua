@@ -42,6 +42,11 @@ return {
               end
             end)
           end,
+          config_set = function(project)
+            if vim.fn.isdirectory(project.config.directory) == 0 then
+              vim.notify("Schematic configuration directory does not exist.", vim.log.levels.WARN)
+            end
+          end,
         }
       })
 
