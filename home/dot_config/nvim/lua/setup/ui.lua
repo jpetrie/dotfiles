@@ -6,6 +6,8 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.list = true
 vim.opt.listchars = "eol:¬,tab:>-,space:·,multispace:|·,extends:▶,precedes:◀,nbsp:•"
 
+vim.opt.colorcolumn = "+1"
+
 vim.opt.statusline = "%!v:lua.BuildStatusLine()"
 
 function BuildStatusLine()
