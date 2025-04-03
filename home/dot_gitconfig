@@ -13,10 +13,15 @@
   tool = nvimdiff
 [difftool]
   prompt = false
+[color "decorate"]
+  branch = brightgreen
+  remoteBranch = brightgreen
+  head = green
 [color "diff"]
+  commit = yellow
   frag = yellow
-  old = white
   new = brightgreen
+  old = white
 [gpg]
   format = ssh
 [gpg "ssh"]
