@@ -12,6 +12,9 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 
+-- Ensure C++ access specifiers use the indent level of their enclosing brace.
+vim.opt.cinoptions = "g0"
+
 -- Line Handling
 vim.opt.breakindent = true
 vim.opt.linebreak = true
