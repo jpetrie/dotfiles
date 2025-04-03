@@ -13,6 +13,10 @@
   tool = nvimdiff
 [difftool]
   prompt = false
+[color "diff"]
+  frag = yellow
+  old = white
+  new = brightgreen
 [gpg]
   format = ssh
 [gpg "ssh"]
