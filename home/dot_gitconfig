@@ -22,6 +22,9 @@
   frag = yellow
   new = brightgreen
   old = white
+[color "status"]
+  branch = yellow
+  changed = brightblack
 [gpg]
   format = ssh
 [gpg "ssh"]
