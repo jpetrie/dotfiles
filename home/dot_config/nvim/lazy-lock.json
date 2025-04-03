@@ -13,5 +13,6 @@
   "schematic": { "branch": "main", "commit": "8b06bac26dc474dc474d5bce50ed3df016139f32" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
+  "tree-sitter-ghostty": { "branch": "main", "commit": "1d5238fc0da5fd5a59130b95c3e1c4948a3f96c1" },
   "turnip": { "branch": "main", "commit": "32f2408ac7b07412ae74a352903f1b5f497156ab" }
 }
