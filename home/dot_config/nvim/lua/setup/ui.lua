@@ -80,9 +80,5 @@ return {
       vim.cmd("colorscheme turnip")
     end,
   },
-  {
-    "stevearc/dressing.nvim",
-    opts = {},
-  },
 }
 

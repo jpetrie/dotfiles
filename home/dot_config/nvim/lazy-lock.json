@@ -1,6 +1,5 @@
 {
   "blink.cmp": { "branch": "main", "commit": "49f211fe5d729df53df4c042d7c3464cf47d199e" },
-  "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "flip": { "branch": "main", "commit": "5862c3c1a0584e2f398043dc4158e1e2be10c3b2" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lightswitch": { "branch": "main", "commit": "3f09232fda2064144b6ca5747e844b94bd6f68d9" },
