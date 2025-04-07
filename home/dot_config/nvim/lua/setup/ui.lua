@@ -36,7 +36,7 @@ function BuildStatusLine()
     if schematic ~= nil then
       local project = schematic.project()
       if project ~= nil then
-        table.insert(parts, "[" .. project.name .. "] " .. project.target.name .. "/" .. project.config.name)
+        table.insert(parts, project.name .. "/" .. project.target.name .. "/" .. project.config.name)
       end
     end
   end
