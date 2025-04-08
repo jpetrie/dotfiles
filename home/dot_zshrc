@@ -8,6 +8,17 @@ function gp() {
   fi
 }
 
+# g - git status or shortcut
+function g() {
+  if [[ $# > 0 ]] then
+    # If there are any arguments, pass them to git.
+    git $@
+  else
+    # Otherwise, show the status.
+    git status
+  fi
+}
+
 # Set aliases.
 alias e=$EDITOR
 alias ll="ls -la"
