@@ -1,13 +1,3 @@
-# gp - changes the working directory to the named project directory.
-function gp() {
-  local destination="${PROJECTS}/${1}"
-  if [[ -d $destination ]] then
-    cd "${destination}"
-  else
-    echo "'${1}': project not found"
-  fi
-}
-
 # g - git status or shortcut
 function g() {
   if [[ $# > 0 ]] then
@@ -16,6 +6,16 @@ function g() {
   else
     # Otherwise, show the status.
     git status
+  fi
+}
+
+# gp - changes the working directory to the named project directory.
+function gp() {
+  local destination="${PROJECTS}/${1}"
+  if [[ -d $destination ]] then
+    cd "${destination}"
+  else
+    echo "'${1}': project not found"
   fi
 }
 
@@ -72,6 +72,7 @@ then
 fi
 
 autoload -Uz compinit && compinit
+compdef g=git
 compdef _gp_options gp
 function _gp_options() {
   # Grab the base name (:t) of all the directories (/) in the Developer folder.
