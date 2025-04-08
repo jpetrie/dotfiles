@@ -10,6 +10,30 @@ vim.opt.colorcolumn = "+1"
 
 vim.opt.statusline = "%!v:lua.BuildStatusLine()"
 
+-- Run a single background timer to periodically update the task spinner and redraw the statusline.
+local task_status = ""
+local tick_index = 0
+local tick_timer = vim.uv.new_timer()
+if tick_timer ~= nil then
+  local interval = 250
+  tick_timer:start(interval, interval, vim.schedule_wrap(function()
+    local overseer = package.loaded["overseer"]
+    if overseer ~= nil then
+      local glyphs = {"·  ", "·· ", "···", " ··", "  ·", "   "}
+      local tasks = overseer.list_tasks({status = overseer.STATUS.RUNNING})
+      if #tasks == 0 then
+        tick_index = -1
+        task_status = ""
+      else
+        tick_index = (tick_index + 1) % #glyphs
+        task_status = "[" .. #tasks .. glyphs[1 + tick_index] .. "] "
+      end
+
+      vim.cmd("redrawstatus")
+    end
+  end))
+end
+
 function BuildStatusLine()
   local window = vim.g.statusline_winid
   local buffer = vim.api.nvim_win_get_buf(window)
@@ -24,13 +48,7 @@ function BuildStatusLine()
   if window == vim.api.nvim_get_current_win() then
     table.insert(parts, "%l:%v%=")
 
-    local overseer = package.loaded["overseer"]
-    if overseer ~= nil then
-      local tasks = overseer.list_tasks({status = overseer.STATUS.RUNNING})
-      if #tasks > 0 then
-        table.insert(parts, "⠶" .. #tasks .. " ")
-      end
-    end
+    table.insert(parts, task_status)
 
     local schematic = package.loaded["schematic"]
     if schematic ~= nil then
