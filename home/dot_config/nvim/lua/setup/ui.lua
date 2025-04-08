@@ -101,5 +101,22 @@ return {
       vim.cmd("colorscheme turnip")
     end,
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    lazy = false,
+    opts = {
+      close_if_last_window = true,
+    },
+    keys = {
+      {"<leader>tt", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree"},
+      {"<leader>tr", "<cmd>Neotree filesystem reveal<cr>", desc = "Reveal current file in Neotree"},
+    },
+  },
 }
 
