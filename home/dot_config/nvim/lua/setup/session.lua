@@ -16,6 +16,15 @@ return {
         end,
       })
 
+      -- If the last window contained only a filtered-out buffer, restoring the session will bring up a "[No Name]"
+      -- buffer. In that case, try to switch to a previously-restored buffer. This could be removed in the future if
+      -- https://github.com/stevearc/resession.nvim/pull/74 or a similar solution is implemented.
+      resession.add_hook("post_load", function()
+        if #vim.api.nvim_buf_get_name(0) == 0 then
+          vim.cmd("bp")
+        end
+      end)
+
       -- Setup automatic save/load of directory-based sessions.
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
