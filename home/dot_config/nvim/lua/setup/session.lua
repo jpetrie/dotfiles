@@ -20,7 +20,7 @@ return {
       -- buffer. In that case, try to switch to a previously-restored buffer. This could be removed in the future if
       -- https://github.com/stevearc/resession.nvim/pull/74 or a similar solution is implemented.
       resession.add_hook("post_load", function()
-        if #vim.api.nvim_buf_get_name(0) == 0 then
+        if #vim.api.nvim_buf_get_name(0) == 0 and #vim.api.nvim_list_bufs() > 1 then
           vim.cmd("bp")
         end
       end)
