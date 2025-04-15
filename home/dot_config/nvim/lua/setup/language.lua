@@ -2,6 +2,12 @@ vim.lsp.config("*", {
   root_markers = {".git"},
 })
 
+vim.lsp.config("cmake-language-server", {
+  cmd = {"cmake-language-server"},
+  root_markers = {"CMakePresets.json", ".git"},
+  filetypes = {"cmake"},
+})
+
 vim.lsp.config("lua-language-server", {
   cmd = {"lua-language-server"},
   root_markers = {".luarc.json", ".luarc.jsonc"},
@@ -22,7 +28,7 @@ vim.lsp.config("lua-language-server", {
   },
 })
 
-vim.lsp.enable({"lua-language-server"})
+vim.lsp.enable({"cmake-language-server", "lua-language-server"})
 
 return {
   {
