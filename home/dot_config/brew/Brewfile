@@ -1,0 +1,9 @@
+brew "chezmoi"
+brew "cmake"
+brew "cmake-language-server"
+brew "fd"
+brew "lua-language-server"
+brew "neovim"
+brew "ripgrep"
+brew "tree-sitter"
+

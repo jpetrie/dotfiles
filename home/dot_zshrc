@@ -1,3 +1,8 @@
+# brewsync - update brew and synchronize packages
+function brewsync() {
+  brew update && brew bundle install --cleanup --file=~/.config/brew/Brewfile && brew upgrade
+}
+
 # g - git status or shortcut
 function g() {
   if [[ $# > 0 ]] then
