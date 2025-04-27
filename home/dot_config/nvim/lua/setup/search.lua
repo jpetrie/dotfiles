@@ -1,5 +1,12 @@
 vim.opt.hlsearch = false
 
+if vim.fn.executable("rg") then
+  -- Neovim's default if rg exists is to pass -uu, which includes ignored and hidden files.
+  vim.opt.grepprg = "rg --vimgrep"
+end
+
+vim.api.nvim_create_user_command("Todo", "silent grep! TODO | copen", {})
+
 return {
   {
     "nvim-telescope/telescope.nvim",
