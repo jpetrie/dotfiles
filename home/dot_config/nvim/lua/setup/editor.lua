@@ -21,6 +21,10 @@ vim.opt.linebreak = true
 vim.opt.showbreak="↳"
 vim.opt.wrap = false
 
+-- Spelling
+vim.opt.spell = true
+vim.opt.spellfile = vim.fs.abspath("~/.config/nvim/spell/custom.utf-8.add")
+
 return {
   {
     "nvim-lua/plenary.nvim",
