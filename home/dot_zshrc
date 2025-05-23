@@ -32,7 +32,9 @@ alias cm="chezmoi"
 # Set options.
 setopt AUTO_CD
 setopt AUTO_PUSHD
+setopt CD_SILENT
 setopt PROMPT_SUBST
+setopt PUSHD_SILENT
 unsetopt BEEP
 
 # Enable vi mode and allow backspace to delete beyond the insertion point.
