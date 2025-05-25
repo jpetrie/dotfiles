@@ -89,3 +89,5 @@ function _gp_options() {
   compadd -a projects
 }
 
+eval "$(starship init zsh)"
+
