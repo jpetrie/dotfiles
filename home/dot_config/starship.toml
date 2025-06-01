@@ -1,4 +1,4 @@
-format = "$directory$git_branch$git_state$git_status$line_break$character"
+format = "$directory$git_branch$git_state$git_commit$git_status$line_break$character"
 add_newline = false
 
 [directory]
@@ -13,6 +13,12 @@ vimcmd_symbol = "[](none)"
 
 [git_branch]
 format = "[$branch]($style)"
+style = "bright-purple"
+
+[git_commit]
+tag_disabled = false
+tag_symbol = "/"
+format = "[( \\(detached at $hash$tag\\))]($style)"
 style = "bright-purple"
 
 [git_status]
