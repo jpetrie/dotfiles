@@ -86,15 +86,17 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- Prevent flicker on launch (see https://github.com/neovim/neovim/issues/19362). Note that while nvim does now
-      -- support DEC mode 2031 (see https://github.com/neovim/neovim/pull/31350), which in theory should render this
-      -- (and the entire Lightswitch plugin) obsolete, the flicker still occurs when relying on nvim's built-in behavior
-      -- and thus both are still neccessary.
-      vim.fn.system("defaults read -g AppleInterfaceStyle")
-      if (vim.v.shell_error == 0) then
-        vim.opt.background = "dark"
-      else
-        vim.opt.background = "light"
+      if vim.fn.has("mac") ~= 0 then
+        -- Prevent flicker on launch (see https://github.com/neovim/neovim/issues/19362). Note that while nvim does now
+        -- support DEC mode 2031 (see https://github.com/neovim/neovim/pull/31350), which in theory should render this
+        -- (and the entire Lightswitch plugin) obsolete, the flicker still occurs when relying on nvim's built-in
+        -- behavior and thus both are still necessary.
+        vim.fn.system("defaults read -g AppleInterfaceStyle")
+        if (vim.v.shell_error == 0) then
+          vim.opt.background = "dark"
+        else
+          vim.opt.background = "light"
+        end
       end
 
       -- Activate.
