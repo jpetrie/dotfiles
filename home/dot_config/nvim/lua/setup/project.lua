@@ -108,6 +108,7 @@ return {
       vim.keymap.set("n", "<LEADER>b", function()
         local project = schematic.project()
         if project ~= nil then
+          vim.cmd("wall")
           project:build()
         end
       end)
