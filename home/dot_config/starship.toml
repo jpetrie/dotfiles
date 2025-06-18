@@ -22,8 +22,8 @@ format = "[( \\(detached at $hash$tag\\))]($style)"
 style = "bright-purple"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](bright-black) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
+style = "bright-black"
 
 # Since the dirty indicator is in a conditional format string, it won't render if the characters used for the variables
 # are empty. Using zero-width spaces prevents the string from being "empty" while still hiding all the clutter from the
