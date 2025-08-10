@@ -5,7 +5,7 @@ if vim.fn.executable("rg") then
   vim.opt.grepprg = "rg --vimgrep"
 end
 
-vim.api.nvim_create_user_command("Todo", "silent grep! TODO | copen", {})
+vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
 
 return {
   {
