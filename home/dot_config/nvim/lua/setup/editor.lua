@@ -22,7 +22,6 @@ vim.opt.showbreak="↳"
 vim.opt.wrap = false
 
 -- Spelling
-vim.opt.spell = true
 vim.opt.spellfile = vim.fs.abspath("~/.config/nvim/spell/custom.utf-8.add")
 
 -- On startup, if any .add files are newer than their .spl files, update them.
