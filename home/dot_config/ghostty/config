@@ -1,5 +1,3 @@
-command = /opt/homebrew/bin/zsh
-
 # Disable ligatures.
 font-feature = -calt, -dlig, -liga
 
