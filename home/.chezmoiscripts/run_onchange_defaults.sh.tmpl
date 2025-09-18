@@ -1,0 +1,19 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -eufo pipefail
+
+# Configure the dock.
+defaults write com.apple.dock mineffect -string "scale"
+defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock orientation -string "left"
+defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock tilesize -int 36
+killall Dock
+
+# Configure the Finder.
+defaults write com.apple.finder NewWindowTarget -string "PfAf"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+killall Finder
+
+{{ end -}}
+
