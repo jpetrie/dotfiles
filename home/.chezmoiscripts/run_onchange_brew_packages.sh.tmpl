@@ -1,4 +1,9 @@
-brew "chezmoi"
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -eufo pipefail
+
+brew bundle install --file=- <<EOF
+brew "1password"
 brew "cmake"
 brew "cmake-language-server"
 brew "doxygen"
@@ -9,5 +14,6 @@ brew "neovim"
 brew "ripgrep"
 brew "starship"
 brew "tree-sitter"
-brew "zsh"
+EOF
+{{ end -}}
 
