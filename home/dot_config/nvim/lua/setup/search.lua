@@ -10,6 +10,9 @@ vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzy-native.nvim"
+    },
     config = function()
       local telescope = require("telescope")
       telescope.setup({
@@ -18,7 +21,7 @@ return {
           layout_config = {height = 0.95}
         }
       })
-      telescope.load_extension("fzf")
+      telescope.load_extension("fzy_native")
 
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<LEADER>of", builtin.find_files)
@@ -27,10 +30,6 @@ return {
       vim.keymap.set("n", "<LEADER>fg", builtin.live_grep)
       vim.keymap.set("n", "<LEADER>fh", builtin.help_tags)
     end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
   },
 }
 
