@@ -2,6 +2,9 @@
 #!/bin/bash
 set -eufo pipefail
 
+# Disable the accent picker in favor of enabling key repeats.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 # Configure the dock.
 defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock minimize-to-application -bool true
