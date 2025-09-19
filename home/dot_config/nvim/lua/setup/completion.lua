@@ -5,7 +5,7 @@ return {
     "saghen/blink.cmp",
 
     -- Requesting a specific tag will download binaries, avoiding the need to build locally.
-    tag = "v1.6.0",
+    tag = "v1.7.0",
     opts = {
       keymap = {
         preset = "none",
