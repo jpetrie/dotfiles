@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script mounts the Backup drive for use with Carbon Copy Cloner's nightly backup task. The task itself will
+# unmount the drive when it completes.
+diskutil mount "Backup"
+

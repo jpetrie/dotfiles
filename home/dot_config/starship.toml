@@ -1,0 +1,42 @@
+format = "$directory$git_branch$git_state$git_commit$git_status$line_break$character"
+add_newline = false
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "purple"
+
+[character]
+success_symbol = "[](none)"
+error_symbol = "[](none)"
+vimcmd_symbol = "[](none)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-purple"
+
+[git_commit]
+tag_disabled = false
+tag_symbol = "/"
+format = "[( \\(detached at $hash$tag\\))]($style)"
+style = "bright-purple"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
+style = "bright-black"
+
+# Since the dirty indicator is in a conditional format string, it won't render if the characters used for the variables
+# are empty. Using zero-width spaces (U+200B) prevents the string from being "empty" while still hiding all the clutter
+# from the individual state symbols.
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
