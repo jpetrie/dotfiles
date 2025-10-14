@@ -1,0 +1,38 @@
+[user]
+  name = Josh Petrie
+  email = josh@joshpetrie.net
+  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key"}}
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+[init]
+  defaultBranch = main
+[commit]
+  gpgsign = true
+  template = ~/.gitmessage
+[tag]
+  gpgsign = true
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[color "decorate"]
+  branch = brightgreen
+  remoteBranch = brightgreen
+  head = green
+[color "diff"]
+  commit = yellow
+  frag = yellow
+  new = brightgreen
+  old = white
+[color "status"]
+  branch = yellow
+  changed = brightblack
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[alias]
+  d = difftool
+  l = log --oneline --graph
+
