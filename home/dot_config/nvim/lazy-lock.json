@@ -10,5 +10,6 @@
   "snacks.nvim": { "branch": "main", "commit": "839022302b470fe166b8b8b04add49bd32bdc01b" },
   "telescope-fzy-native.nvim": { "branch": "master", "commit": "282f069504515eec762ab6d6c89903377252bf5b" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
-  "tree-sitter-ghostty": { "branch": "main", "commit": "2a9ae7233b6707e84b3a79c8778427f58aa4b6d0" }
+  "tree-sitter-ghostty": { "branch": "main", "commit": "2a9ae7233b6707e84b3a79c8778427f58aa4b6d0" },
+  "turnip": { "branch": "main", "commit": "057f11b08b7eede1f10eba463ac0b13ee8b1a27b" }
 }

@@ -246,6 +246,13 @@ require("lazy").setup({
       end,
     },
     {
+      "jpetrie/turnip",
+      priority = 1000,
+      config = function()
+        vim.cmd("colorscheme turnip")
+      end,
+    },
+    {
       "ngynkvn/gotmpl.nvim",
       opts = {},
     },
