@@ -246,6 +246,13 @@ require("lazy").setup({
       end,
     },
     {
+      "jpetrie/flip",
+      opts = {},
+      keys = {
+        {"<LEADER>a", ":Flip next<CR>", desc = "Flip to the next counterpart"},
+      }
+    },
+    {
       "jpetrie/lightswitch",
       opts = {},
     },
