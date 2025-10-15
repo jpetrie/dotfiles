@@ -246,6 +246,10 @@ require("lazy").setup({
       end,
     },
     {
+      "jpetrie/lightswitch",
+      opts = {},
+    },
+    {
       "jpetrie/turnip",
       priority = 1000,
       config = function()
