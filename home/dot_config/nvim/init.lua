@@ -135,6 +135,22 @@ function BuildStatusLine()
   if window == vim.api.nvim_get_current_win() then
     table.insert(parts, "%l:%v%=")
     table.insert(parts, task_status)
+
+    local has_lantern, lantern = pcall(require, "lantern")
+    if has_lantern then
+      local project = lantern.project()
+      if project ~= nil then
+        table.insert(parts, project.name)
+        local configuration = lantern.configuration()
+        if configuration ~= nil then
+          table.insert(parts, "/" .. configuration.name)
+          local target = lantern.target()
+          if target ~= nil then
+            table.insert(parts, "/" .. target.name)
+          end
+        end
+      end
+    end
   end
 
   return table.concat(parts, "")
@@ -251,6 +267,39 @@ require("lazy").setup({
       keys = {
         {"<LEADER>a", ":Flip next<CR>", desc = "Flip to the next counterpart"},
       }
+    },
+    {
+      "jpetrie/lantern",
+      lazy = false,
+      opts = {},
+      config = function(_, options)
+        local lantern = require("lantern")
+        lantern.setup(options)
+        vim.api.nvim_create_autocmd("VimEnter", { callback = function(_) lantern.scan() end })
+      end,
+      keys = {
+        {
+          "<LEADER>k",
+          function()
+            require("lantern").run("clean")
+          end,
+          desc = "Clean the active target"
+        },
+        {
+          "<LEADER>b",
+          function()
+            require("lantern").run("build")
+          end,
+          desc = "Build the active target"
+        },
+        {
+          "<LEADER>r",
+          function()
+            require("lantern").run("run")
+          end,
+          desc = "Run the active target"
+        },
+      },
     },
     {
       "jpetrie/lightswitch",
