@@ -48,7 +48,7 @@ vim.opt.wrap = false
 -- Appearance and UI
 vim.opt.colorcolumn = "+1"
 vim.opt.list = true
-vim.opt.listchars = "eol:¬,tab:>-,space:·,multispace:│·,extends:▶,precedes:◀,nbsp:•"
+vim.opt.listchars = "eol:¬,tab:>-,space:·,extends:▶,precedes:◀,nbsp:•"
 vim.opt.number = true
 vim.opt.ruler = false
 vim.opt.shortmess = "filmrxWIF"
@@ -256,6 +256,16 @@ require("lazy").setup({
               return results
             end,
           },
+        }
+        
+        options.indent = {
+          enabled = true,
+          only_scope = true,
+          animate = {enabled = false},
+          filter = function (buffer)
+            local ignore_filetypes = {"help", "markdown", "text"}
+            return not vim.list_contains(ignore_filetypes, vim.bo[buffer].filetype)
+          end,
         }
 
         return options
