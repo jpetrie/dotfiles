@@ -319,6 +319,13 @@ require("lazy").setup({
       "jpetrie/turnip",
       priority = 1000,
       config = function()
+        require("turnip").setup({
+          custom_groups = {
+            SnacksIndent = {fg = "ui_invisible"},
+            SnacksIndentScope = {fg = "green_faint"},
+          }
+        })
+
         vim.cmd("colorscheme turnip")
       end,
     },
