@@ -192,6 +192,18 @@ vim.lsp.config("lua-language-server", {
 
 vim.lsp.enable({"cmake-language-server", "lua-language-server"})
 
+-- Only start clangd when a suitable Lantern project exists.
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = "cpp", callback = function(_)
+  local has_lantern, lantern = pcall(require, "lantern")
+  if has_lantern and lantern.configuration() ~= nil then
+    vim.lsp.start({
+      name = "clangd",
+      cmd = {"clangd", "--compile-commands-dir=" .. lantern.configuration().directory},
+      root_dir = lantern.project().directory,
+    })
+  end
+end})
+
 
 -- =====================================================================================================================
 -- Diagnostics
