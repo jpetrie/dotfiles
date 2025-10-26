@@ -281,10 +281,12 @@ require("lazy").setup({
     {
       "jpetrie/lantern",
       lazy = false,
-      opts = {},
-      config = function(_, options)
+      config = function()
         local lantern = require("lantern")
-        lantern.setup(options)
+        lantern.setup({
+          exclude_binary_directory_patterns = {"Xcode"},
+        })
+
         vim.api.nvim_create_autocmd("VimEnter", { callback = function(_) lantern.scan() end })
       end,
       keys = {
