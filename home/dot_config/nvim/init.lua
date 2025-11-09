@@ -285,6 +285,7 @@ require("lazy").setup({
     },
     {
       "jpetrie/flip",
+      tag = "1.0.0",
       opts = {},
       keys = {
         {"<LEADER>a", ":Flip next<CR>", desc = "Flip to the next counterpart"},
