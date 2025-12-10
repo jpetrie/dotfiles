@@ -306,21 +306,21 @@ require("lazy").setup({
         {
           "<LEADER>k",
           function()
-            require("lantern").run("clean")
+            require("lantern").clean()
           end,
           desc = "Clean the active target"
         },
         {
           "<LEADER>b",
           function()
-            require("lantern").run("build")
+            require("lantern").build()
           end,
           desc = "Build the active target"
         },
         {
           "<LEADER>r",
           function()
-            require("lantern").run("run")
+            require("lantern").run()
           end,
           desc = "Run the active target"
         },
