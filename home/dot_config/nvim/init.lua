@@ -306,6 +306,7 @@ require("lazy").setup({
         {
           "<LEADER>k",
           function()
+            vim.cmd("wa")
             require("lantern").clean()
           end,
           desc = "Clean the active target"
@@ -313,6 +314,7 @@ require("lazy").setup({
         {
           "<LEADER>b",
           function()
+            vim.cmd("wa")
             require("lantern").build()
           end,
           desc = "Build the active target"
@@ -320,6 +322,7 @@ require("lazy").setup({
         {
           "<LEADER>r",
           function()
+            vim.cmd("wa")
             require("lantern").run()
           end,
           desc = "Run the active target"
