@@ -293,8 +293,10 @@ vim.api.nvim_create_autocmd("VimEnter", {callback = function(_)
   local resession = require("resession")
   local lantern = require("lantern")
   lantern.scan()
-  if lantern.project() ~= nil then
-    -- Try to load the session for this project, if it exists.
+
+  -- If Neovim started with no arguments and without reading from stdin, try to load the session for the active project
+  -- if one exists.
+  if vim.fn.argc(-1) == 0 and not vim.g.using_stdin and lantern.project() ~= nil then
     resession.load(lantern.project().name, {silence_errors = true})
   end
 end})
