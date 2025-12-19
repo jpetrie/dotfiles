@@ -1,5 +1,5 @@
-background = 0c0c0c
-foreground = afafaf
+background = 1f1f1f
+foreground = dadada
 
 # Black.
 palette = 0=0c0c0c
