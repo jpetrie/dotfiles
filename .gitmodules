@@ -1,0 +1,33 @@
+[submodule "home/dot_config/nvim/pack/plugins/external_start/turnip"]
+	path = home/dot_config/nvim/pack/plugins/external_start/turnip
+	url = git@github.com:jpetrie/turnip.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/lightswitch"]
+	path = home/dot_config/nvim/pack/plugins/external_start/lightswitch
+	url = git@github.com:jpetrie/lightswitch.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/flip"]
+	path = home/dot_config/nvim/pack/plugins/external_start/flip
+	url = git@github.com:jpetrie/flip.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/lantern"]
+	path = home/dot_config/nvim/pack/plugins/external_start/lantern
+	url = git@github.com:jpetrie/lantern.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/plenary.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/telescope.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/telescope-fzy-native.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/telescope-fzy-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/nvim-treesitter"]
+	path = home/dot_config/nvim/pack/plugins/external_start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/resession.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/resession.nvim
+	url = https://github.com/stevearc/resession.nvim.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/mini.completion"]
+	path = home/dot_config/nvim/pack/plugins/external_start/mini.completion
+	url = https://github.com/nvim-mini/mini.completion.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/mini.icons"]
+	path = home/dot_config/nvim/pack/plugins/external_start/mini.icons
+	url = https://github.com/nvim-mini/mini.icons.git
