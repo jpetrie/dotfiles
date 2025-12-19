@@ -31,3 +31,6 @@
 [submodule "home/dot_config/nvim/pack/plugins/external_start/mini.icons"]
 	path = home/dot_config/nvim/pack/plugins/external_start/mini.icons
 	url = https://github.com/nvim-mini/mini.icons.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/quicker.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/quicker.nvim
+	url = https://github.com/stevearc/quicker.nvim.git

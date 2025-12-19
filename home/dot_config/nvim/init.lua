@@ -266,6 +266,8 @@ icons.setup()
 icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
 
+require("quicker").setup()
+
 require("resession").setup({
   extensions = {
     lantern = {},
