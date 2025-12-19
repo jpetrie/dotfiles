@@ -267,6 +267,9 @@ icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
 
 require("resession").setup({
+  extensions = {
+    lantern = {},
+  },
   buf_filter = function(buffer)
     -- Do not save any of the filetypes in this list with the session, defer to the default implementation for
     -- everything else.
