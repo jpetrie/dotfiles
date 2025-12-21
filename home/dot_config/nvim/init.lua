@@ -249,7 +249,7 @@ require("lantern").setup({
   save_before_task = true,
 })
 
-require("nvim-treesitter").install({"c", "cpp", "doxygen"})
+require("nvim-treesitter").install({"c", "cmake", "cpp", "doxygen"})
 
 require("mini.completion").setup({
   lsp_completion = {
