@@ -63,6 +63,16 @@ vim.opt.statusline = "%!v:lua.BuildStatusLine()"
 
 
 -- =====================================================================================================================
+-- Commands
+
+-- Reveal the current buffer in the Finder.
+vim.api.nvim_create_user_command("Reveal", function() vim.system({"open", "-R", vim.api.nvim_buf_get_name(0)}) end, {})
+
+-- Populate the quickfix list with TODO comments.
+vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
+
+
+-- =====================================================================================================================
 -- Keymaps
 
 -- Edit init.lua.
@@ -75,9 +85,6 @@ vim.keymap.set("i", "<C-k>", "<C-p>", {desc = "Select prior completion"})
 -- Jump to long lines.
 vim.keymap.set("n", "]ll", "/\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to next long line"})
 vim.keymap.set("n", "[ll", "?\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to prior long line"})
-
--- Populate the quickfix list with TODO comments.
-vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
 
 -- Flip between file counterparts.
 vim.keymap.set("n", "<LEADER>a", ":Flip next<CR>", {desc = "Flip to the next counterpart"})
