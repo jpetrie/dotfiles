@@ -71,6 +71,9 @@ vim.api.nvim_create_user_command("Reveal", function() vim.system({"open", "-R", 
 -- Populate the quickfix list with TODO comments.
 vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
 
+-- Populate the quickfix with references to the symbol under the cursor.
+vim.api.nvim_create_user_command("Refs", "lua vim.lsp.buf.references()", {})
+
 
 -- =====================================================================================================================
 -- Keymaps
@@ -85,6 +88,9 @@ vim.keymap.set("i", "<C-k>", "<C-p>", {desc = "Select prior completion"})
 -- Jump to long lines.
 vim.keymap.set("n", "]ll", "/\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to next long line"})
 vim.keymap.set("n", "[ll", "?\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to prior long line"})
+
+-- Find references.
+vim.keymap.set("n", "qr", ":Refs<CR>", {desc = "Set quickfix to symbol references"})
 
 -- Flip between file counterparts.
 vim.keymap.set("n", "<LEADER>a", ":Flip next<CR>", {desc = "Flip to the next counterpart"})
