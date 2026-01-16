@@ -265,6 +265,8 @@ require("lantern").setup({
   save_before_task = true,
 })
 
+require("lightswitch").setup({})
+
 require("nvim-treesitter").install({"c", "cmake", "cpp", "doxygen", "objc"})
 
 require("mini.completion").setup({
