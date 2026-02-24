@@ -71,12 +71,6 @@ vim.api.nvim_create_user_command("Reveal", function() vim.system({"open", "-R", 
 -- Populate the quickfix list with TODO comments.
 vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
 
--- Populate the quickfix with references to the symbol under the cursor.
-vim.api.nvim_create_user_command("Refs", "lua vim.lsp.buf.references()", {})
-
--- Rename the symbol under the cursor.
-vim.api.nvim_create_user_command("Rename", "lua vim.lsp.buf.rename()", {})
-
 
 -- =====================================================================================================================
 -- Keymaps
