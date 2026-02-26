@@ -222,12 +222,19 @@ vim.lsp.enable({"cmake-language-server", "lua-language-server"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = "cpp", callback = function(_)
   local has_lantern, lantern = pcall(require, "lantern")
   if has_lantern and lantern.configuration() ~= nil then
+    -- Try to launch a version of clangd installed by Homebrew, as it should be newer. Otherwise fall back to the
+    -- version installed by the OS.
+    local clangd_path = "/opt/homebrew/opt/llvm/bin/clangd"
+    if not vim.fn.executable(clangd_path) then
+      clangd_path = "clangd"
+    end
+
     vim.lsp.start({
       name = "clangd",
 
       -- Passing --log=error causes clangd to only write actual errors to stderr (by default, it will write pretty much
       -- everything to stderr, which bloats the LSP log very quickly).
-      cmd = {"clangd", "--log=error", "--compile-commands-dir=" .. lantern.configuration().directory},
+      cmd = {clangd_path, "--log=error", "--compile-commands-dir=" .. lantern.configuration().directory},
       root_dir = lantern.project().directory,
     })
   end
