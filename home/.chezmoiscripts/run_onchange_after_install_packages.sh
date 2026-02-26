@@ -11,6 +11,7 @@ brew bundle --file=/dev/stdin <<EOF
   brew "fish"
   brew "fzy"
   brew "git"
+  brew "llvm"
   brew "lua-language-server"
   brew "neovim"
   brew "ripgrep"
