@@ -224,7 +224,10 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = "cpp", callback = function(
   if has_lantern and lantern.configuration() ~= nil then
     vim.lsp.start({
       name = "clangd",
-      cmd = {"clangd", "--compile-commands-dir=" .. lantern.configuration().directory},
+
+      -- Passing --log=error causes clangd to only write actual errors to stderr (by default, it will write pretty much
+      -- everything to stderr, which bloats the LSP log very quickly).
+      cmd = {"clangd", "--log=error", "--compile-commands-dir=" .. lantern.configuration().directory},
       root_dir = lantern.project().directory,
     })
   end
