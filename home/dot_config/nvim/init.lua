@@ -219,7 +219,7 @@ vim.lsp.config("lua-language-server", {
 vim.lsp.enable({"cmake-language-server", "lua-language-server"})
 
 -- Only start clangd when a suitable Lantern project exists.
-vim.api.nvim_create_autocmd({"FileType"}, {pattern = "cpp", callback = function(_)
+vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = function(_)
   local has_lantern, lantern = pcall(require, "lantern")
   if has_lantern and lantern.configuration() ~= nil then
     -- Try to launch a version of clangd installed by Homebrew, as it should be newer. Otherwise fall back to the
@@ -242,6 +242,10 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = "cpp", callback = function(
   vim.treesitter.start()
 end})
 
+vim.api.nvim_create_autocmd("LspAttach", {callback = function(_)
+  -- When a language server is active, replace the built-in gd keymap.
+  vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", {desc = "Go to the definition of the symbol under the cursor"})
+end })
 
 -- =====================================================================================================================
 -- Diagnostics
