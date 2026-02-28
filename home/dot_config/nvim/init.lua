@@ -267,6 +267,23 @@ vim.diagnostic.config({
 require("lantern").setup({
   exclude_binary_directory_patterns = {"Xcode"},
   save_before_task = true,
+  run_task = function(command)
+    local task = require("overseer").new_task({
+      cmd = command,
+      components = {
+        {
+          "on_output_quickfix",
+          errorformat = vim.o.errorformat,
+          items_only = true,
+          open_on_match = true,
+          close = true,
+        },
+        "default"
+      }
+    })
+
+    task:start()
+  end,
 })
 
 require("lightswitch").setup({})
@@ -287,6 +304,8 @@ local icons = require("mini.icons")
 icons.setup()
 icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
+
+require("overseer").setup()
 
 require("quicker").setup()
 
