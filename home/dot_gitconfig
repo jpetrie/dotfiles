@@ -1,7 +1,7 @@
 [user]
   name = Josh Petrie
   email = josh@joshpetrie.net
-  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key"}}
+  signingkey = ~/.ssh/id_ed25519
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -30,8 +30,6 @@
   changed = brightblack
 [gpg]
   format = ssh
-[gpg "ssh"]
-  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [alias]
   d = difftool
   l = log --oneline --graph
