@@ -37,3 +37,6 @@
 [submodule "home/dot_config/nvim/pack/plugins/external_start/overseer.nvim"]
 	path = home/dot_config/nvim/pack/plugins/external_start/overseer.nvim
 	url = https://github.com/stevearc/overseer.nvim.git
+[submodule "home/dot_config/nvim/pack/plugins/external_start/oil.nvim"]
+	path = home/dot_config/nvim/pack/plugins/external_start/oil.nvim
+	url = https://github.com/stevearc/oil.nvim.git

@@ -108,6 +108,9 @@ vim.keymap.set("n", "<leader>ss", require("resession").save)
 vim.keymap.set("n", "<leader>sl", require("resession").load)
 vim.keymap.set("n", "<leader>sd", require("resession").delete)
 
+-- Open the current buffer's directory in Oil.
+vim.keymap.set("n", "-", ":Oil<CR>", {desc = "Open parent directory"})
+
 
 -- =====================================================================================================================
 -- Statusline
@@ -308,6 +311,12 @@ local icons = require("mini.icons")
 icons.setup()
 icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
+
+require("oil").setup({
+  keymaps = {
+    ["<ESC>"] = "actions.close",
+  },
+})
 
 require("overseer").setup()
 
