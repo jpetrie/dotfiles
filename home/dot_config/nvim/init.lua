@@ -295,8 +295,6 @@ require("lantern").setup({
 
 require("lightswitch").setup({})
 
-require("nvim-treesitter").install({"c", "cmake", "cpp", "doxygen", "objc"})
-
 require("mini.completion").setup({
   lsp_completion = {
     source_func = "omnifunc"
@@ -311,6 +309,8 @@ local icons = require("mini.icons")
 icons.setup()
 icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
+
+require("nvim-treesitter").install({"c", "cmake", "cpp", "doxygen", "objc"})
 
 require("oil").setup({
   keymaps = {
