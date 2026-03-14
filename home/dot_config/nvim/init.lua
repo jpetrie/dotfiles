@@ -141,25 +141,9 @@ end
 
 function BuildStatusLine()
   local window = vim.g.statusline_winid
-  local buffer = vim.api.nvim_win_get_buf(window)
-  local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buffer), ":~")
   local parts = {}
 
-  -- Shorten the path by reducing all intermediate directory names longer than some cutoff. This provides a bit more
-  -- context than simply reducing them to a single character.
-  path = path:gsub("([^/]+)/", function (directory)
-    local cutoff = 3
-    if #directory < cutoff then
-      return directory .. "/"
-    else
-      return vim.fn.strcharpart(directory, 0, cutoff) .. "…/"
-    end
-  end)
-
-  table.insert(parts, path)
-  if #path > 0 then
-    table.insert(parts, " ")
-  end
+  table.insert(parts, "%t ")
 
   if window == vim.api.nvim_get_current_win() then
     table.insert(parts, "%l:%v%=")
