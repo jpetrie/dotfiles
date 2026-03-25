@@ -104,9 +104,9 @@ vim.keymap.set("n", "<LEADER>fg", ":Telescope live_grep<CR>", {desc = "Find in f
 vim.keymap.set("n", "<LEADER>fh", ":Telescope help_tags<CR>", {desc = "Find in help"})
 
 -- Session management.
-vim.keymap.set("n", "<leader>ss", require("resession").save)
-vim.keymap.set("n", "<leader>sl", require("resession").load)
-vim.keymap.set("n", "<leader>sd", require("resession").delete)
+vim.keymap.set("n", "<LEADER>ss", require("resession").save)
+vim.keymap.set("n", "<LEADER>sl", require("resession").load)
+vim.keymap.set("n", "<LEADER>sd", require("resession").delete)
 
 -- Open the current buffer's directory in Oil.
 vim.keymap.set("n", "-", ":Oil<CR>", {desc = "Open parent directory"})
