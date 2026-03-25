@@ -111,6 +111,9 @@ vim.keymap.set("n", "<leader>sd", require("resession").delete)
 -- Open the current buffer's directory in Oil.
 vim.keymap.set("n", "-", ":Oil<CR>", {desc = "Open parent directory"})
 
+-- Format the current buffer.
+vim.keymap.set("n", "<LEADER>f", function() vim.lsp.buf.format() end, {desc = "Format the current buffer"})
+
 
 -- =====================================================================================================================
 -- Statusline
