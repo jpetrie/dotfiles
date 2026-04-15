@@ -1,0 +1,57 @@
+{
+  "plugins": {
+    "flip": {
+      "rev": "9f99671005fc68a9df561319bc3b66a0a5ef37e8",
+      "src": "git@github.com:jpetrie/flip.git",
+      "version": "'1.0.0'"
+    },
+    "lantern": {
+      "rev": "c755100ff9801836e411a446967e6486491f4c16",
+      "src": "git@github.com:jpetrie/lantern.git"
+    },
+    "lightswitch": {
+      "rev": "d189001e92655d0ed0adaff860ba3ec399d0f17e",
+      "src": "git@github.com:jpetrie/lightswitch.git",
+      "version": "'v1.0.0'"
+    },
+    "mini.completion": {
+      "rev": "7c5edfc0e479dd4edd898cc9ddd1920d8c1ce420",
+      "src": "https://github.com/nvim-mini/mini.completion.git",
+      "version": "'v0.17.0'"
+    },
+    "mini.icons": {
+      "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
+      "src": "https://github.com/nvim-mini/mini.icons.git",
+      "version": "'v0.17.0'"
+    },
+    "oil": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim.git"
+    },
+    "overseer": {
+      "rev": "f818eefff81f4b12fb7cf236f1b6c16768a2fcbc",
+      "src": "https://github.com/stevearc/overseer.nvim.git"
+    },
+    "plenary": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim.git"
+    },
+    "resession": {
+      "rev": "05adc14db5c2d0eae064765101dd5e9c594c7851",
+      "src": "https://github.com/stevearc/resession.nvim.git"
+    },
+    "telescope": {
+      "rev": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179",
+      "src": "https://github.com/nvim-telescope/telescope.nvim.git",
+      "version": "'v0.2.1'"
+    },
+    "telescope-fzy-native": {
+      "rev": "282f069504515eec762ab6d6c89903377252bf5b",
+      "src": "https://github.com/nvim-telescope/telescope-fzy-native.nvim.git"
+    },
+    "turnip": {
+      "rev": "8def13634d3e5a9d5b276cb0dd8af6f7435f3f09",
+      "src": "git@github.com:jpetrie/turnip.git"
+    }
+  }
+}

@@ -104,9 +104,9 @@ vim.keymap.set("n", "<LEADER>fg", ":Telescope live_grep<CR>", {desc = "Find in f
 vim.keymap.set("n", "<LEADER>fh", ":Telescope help_tags<CR>", {desc = "Find in help"})
 
 -- Session management.
-vim.keymap.set("n", "<LEADER>ss", require("resession").save)
-vim.keymap.set("n", "<LEADER>sl", require("resession").load)
-vim.keymap.set("n", "<LEADER>sd", require("resession").delete)
+vim.keymap.set("n", "<LEADER>ss", function() require("resession").save() end)
+vim.keymap.set("n", "<LEADER>sl", function() require("resession").load() end)
+vim.keymap.set("n", "<LEADER>sd", function() require("resession").delete() end)
 
 -- Open the current buffer's directory in Oil.
 vim.keymap.set("n", "-", ":Oil<CR>", {desc = "Open parent directory"})
@@ -256,6 +256,21 @@ vim.diagnostic.config({
 -- =====================================================================================================================
 -- Plugin Setup
 
+vim.pack.add({
+  {name = "flip", version = "1.0.0", src = "git@github.com:jpetrie/flip.git"},
+  {name = "lantern", src = "git@github.com:jpetrie/lantern.git"},
+  {name = "lightswitch", version = "v1.0.0", src = "git@github.com:jpetrie/lightswitch.git"},
+  {name = "mini.completion", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.completion.git"},
+  {name = "mini.icons", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.icons.git"},
+  {name = "oil", src = "https://github.com/stevearc/oil.nvim.git"},
+  {name = "overseer", src = "https://github.com/stevearc/overseer.nvim.git"},
+  {name = "plenary", src = "https://github.com/nvim-lua/plenary.nvim.git"},
+  {name = "resession", src = "https://github.com/stevearc/resession.nvim.git"},
+  {name = "telescope", version = "v0.2.1", src = "https://github.com/nvim-telescope/telescope.nvim.git"},
+  {name = "telescope-fzy-native", src = "https://github.com/nvim-telescope/telescope-fzy-native.nvim.git"},
+  {name = "turnip", src = "git@github.com:jpetrie/turnip.git"},
+})
+
 require("lantern").setup({
   exclude_binary_directory_patterns = {"Xcode"},
   save_before_task = true,
@@ -302,8 +317,6 @@ require("oil").setup({
 })
 
 require("overseer").setup()
-
-require("quicker").setup()
 
 require("resession").setup({
   extensions = {
