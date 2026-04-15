@@ -228,8 +228,6 @@ vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = function(_)
       root_dir = lantern.project().directory,
     })
   end
-
-  vim.treesitter.start()
 end})
 
 vim.api.nvim_create_autocmd("LspAttach", {callback = function(_)
@@ -296,8 +294,6 @@ local icons = require("mini.icons")
 icons.setup()
 icons.mock_nvim_web_devicons()
 icons.tweak_lsp_kind("prepend")
-
-require("nvim-treesitter").install({"c", "cmake", "cpp", "doxygen", "objc"})
 
 require("oil").setup({
   keymaps = {

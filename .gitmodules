@@ -19,9 +19,6 @@
 [submodule "home/dot_config/nvim/pack/plugins/external_start/telescope-fzy-native.nvim"]
 	path = home/dot_config/nvim/pack/plugins/external_start/telescope-fzy-native.nvim
 	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
-[submodule "home/dot_config/nvim/pack/plugins/external_start/nvim-treesitter"]
-	path = home/dot_config/nvim/pack/plugins/external_start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "home/dot_config/nvim/pack/plugins/external_start/resession.nvim"]
 	path = home/dot_config/nvim/pack/plugins/external_start/resession.nvim
 	url = https://github.com/stevearc/resession.nvim.git
