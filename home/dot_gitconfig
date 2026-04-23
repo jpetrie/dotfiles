@@ -17,11 +17,11 @@
 [difftool]
   prompt = false
 [color "decorate"]
-  branch = brightgreen
-  remoteBranch = brightgreen
-  head = green
+  branch = brightmagenta
+  remoteBranch = brightmagenta
+  head = brightmagenta bold
 [color "diff"]
-  commit = yellow
+  commit = green
   frag = yellow
   new = brightgreen
   old = white
