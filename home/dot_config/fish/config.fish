@@ -24,6 +24,13 @@ if status is-interactive
   set -g fish_autosuggestion_enabled 0
   set -g fish_key_bindings fish_vi_key_bindings
 
+  set -g fish_color_command black
+  set -g fish_color_error red
+  set -g fish_color_option brcyan
+  set -g fish_color_param cyan
+  set -g fish_color_quote brblack
+  set -g fish_color_valid_path --underline black
+
   abbr --add cm chezmoi
   abbr --add e $EDITOR
   abbr --add g git
