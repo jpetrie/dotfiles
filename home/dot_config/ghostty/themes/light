@@ -3,32 +3,32 @@ foreground = 000000
 
 # Black.
 palette = 0=000000
-palette = 8=605953
+palette = 8=555555
 
 # Red.
 palette = 1=c62411
-palette = 9=ffebec
+palette = 9=ee503f
 
 # Green.
 palette = 2=3a7216
 palette = 10=6da372
 
 # Yellow.
-palette = 3=643820
-palette = 11=ffe39e
+palette = 3=db7b2c
+palette = 11=ebb11e
 
 # Blue.
 palette = 4=1974b5
-palette = 12=dad6ff
+palette = 12=3f9ee0
 
-# Purple.
+# Magenta.
 palette = 5=7a5296
 palette = 13=9b238f
 
-# Cyan (canonically, but the hues below are more orange).
-palette = 6=fcc18d
-palette = 14=ffe9d6
+# Cyan.
+palette = 6=8a436c
+palette = 14=d98bb6
 
 # White.
-palette = 7=b5b0ba
-palette = 15=e5e5e5
+palette = 7=808080
+palette = 15=c9c9c9
