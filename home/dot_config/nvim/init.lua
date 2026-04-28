@@ -1,16 +1,6 @@
-if vim.fn.has("mac") ~= 0 then
-  -- Prevent flicker on launch (see https://github.com/neovim/neovim/issues/19362).
-  vim.fn.system("defaults read -g AppleInterfaceStyle")
-  if (vim.v.shell_error == 0) then
-    vim.opt.background = "dark"
-  else
-    vim.opt.background = "light"
-  end
-end
-
 -- =====================================================================================================================
 -- Options
-
+vim.treesitter.language.register("cpp", {"cpp"})
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -259,7 +249,6 @@ vim.diagnostic.config({
 vim.pack.add({
   {name = "flip", version = "1.0.0", src = "git@github.com:jpetrie/flip.git"},
   {name = "lantern", src = "git@github.com:jpetrie/lantern.git"},
-  {name = "lightswitch", version = "v1.0.0", src = "git@github.com:jpetrie/lightswitch.git"},
   {name = "mini.completion", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.completion.git"},
   {name = "mini.icons", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.icons.git"},
   {name = "oil", src = "https://github.com/stevearc/oil.nvim.git"},
@@ -292,8 +281,6 @@ require("lantern").setup({
     task:start()
   end,
 })
-
-require("lightswitch").setup({})
 
 require("mini.completion").setup({
   lsp_completion = {
