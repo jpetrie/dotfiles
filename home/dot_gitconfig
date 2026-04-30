@@ -18,8 +18,9 @@
   prompt = false
 [color "decorate"]
   branch = brightmagenta
-  remoteBranch = brightmagenta
   head = brightmagenta bold
+  remoteBranch = brightmagenta
+  tag = blue
 [color "diff"]
   commit = green
   frag = yellow
