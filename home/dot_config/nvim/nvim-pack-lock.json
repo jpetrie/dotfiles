@@ -50,7 +50,7 @@
       "src": "https://github.com/nvim-telescope/telescope-fzy-native.nvim.git"
     },
     "turnip": {
-      "rev": "8def13634d3e5a9d5b276cb0dd8af6f7435f3f09",
+      "rev": "87186b04e507a5c8833c1104c21315374a855078",
       "src": "git@github.com:jpetrie/turnip.git"
     }
   }
