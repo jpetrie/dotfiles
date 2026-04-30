@@ -1,6 +1,5 @@
 -- =====================================================================================================================
 -- Options
-vim.treesitter.language.register("cpp", {"cpp"})
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -164,7 +163,7 @@ end
 
 
 -- =====================================================================================================================
--- Language Servers
+-- Language Support
 
 vim.lsp.config("*", {
   root_markers = {".git"},
@@ -197,6 +196,8 @@ vim.lsp.config("lua-language-server", {
 })
 
 vim.lsp.enable({"cmake-language-server", "lua-language-server"})
+
+vim.treesitter.language.register("cpp", {"cpp"})
 
 -- Only start clangd when a suitable Lantern project exists.
 vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = function(_)
