@@ -9,11 +9,6 @@
       "rev": "c755100ff9801836e411a446967e6486491f4c16",
       "src": "git@github.com:jpetrie/lantern.git"
     },
-    "lightswitch": {
-      "rev": "d189001e92655d0ed0adaff860ba3ec399d0f17e",
-      "src": "git@github.com:jpetrie/lightswitch.git",
-      "version": "'v1.0.0'"
-    },
     "mini.completion": {
       "rev": "7c5edfc0e479dd4edd898cc9ddd1920d8c1ce420",
       "src": "https://github.com/nvim-mini/mini.completion.git",
