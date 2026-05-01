@@ -247,20 +247,6 @@ vim.diagnostic.config({
 -- =====================================================================================================================
 -- Plugin Setup
 
-vim.pack.add({
-  {name = "flip", version = "1.0.0", src = "git@github.com:jpetrie/flip.git"},
-  {name = "lantern", src = "git@github.com:jpetrie/lantern.git"},
-  {name = "mini.completion", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.completion.git"},
-  {name = "mini.icons", version = "v0.17.0", src = "https://github.com/nvim-mini/mini.icons.git"},
-  {name = "oil", src = "https://github.com/stevearc/oil.nvim.git"},
-  {name = "overseer", src = "https://github.com/stevearc/overseer.nvim.git"},
-  {name = "plenary", src = "https://github.com/nvim-lua/plenary.nvim.git"},
-  {name = "resession", src = "https://github.com/stevearc/resession.nvim.git"},
-  {name = "telescope", version = "v0.2.1", src = "https://github.com/nvim-telescope/telescope.nvim.git"},
-  {name = "telescope-fzy-native", src = "https://github.com/nvim-telescope/telescope-fzy-native.nvim.git"},
-  {name = "turnip", src = "git@github.com:jpetrie/turnip.git"},
-})
-
 require("lantern").setup({
   exclude_binary_directory_patterns = {"Xcode"},
   save_before_task = true,
