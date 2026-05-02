@@ -1,33 +1,33 @@
-background = 1f1f1f
-foreground = dadada
+background = 141414
+foreground = ababab
 
 # Black.
-palette = 0=0c0c0c
-palette = 8=605953
+palette = 0=000000
+palette = 8=555555
 
 # Red.
-palette = 1=c62411
-palette = 9=ffebec
+palette = 1=b83535
+palette = 9=751616
 
 # Green.
 palette = 2=3a7216
 palette = 10=6da372
 
 # Yellow.
-palette = 3=643820
-palette = 11=ffe39e
+palette = 3=db7b2c
+palette = 11=ebb11e
 
 # Blue.
-palette = 4=1974b5
-palette = 12=dad6ff
+palette = 4=34598c
+palette = 12=4d7fc4
 
-# Purple.
-palette = 5=8d5daf
-palette = 13=962a8b
+# Magenta.
+palette = 5=682e94
+palette = 13=75206a
 
-# Cyan (canonically, but the hues below are more orange).
-palette = 6=fcc18d
-palette = 14=ffe9d6
+# Cyan.
+palette = 6=8a436c
+palette = 14=d98bb6
 
 # White.
 palette = 7=b5b0ba
