@@ -250,8 +250,9 @@ vim.diagnostic.config({
 require("lantern").setup({
   exclude_binary_directory_patterns = {"Xcode"},
   save_before_task = true,
-  run_task = function(command)
-    local task = require("overseer").new_task({
+  run_task = function(command, callback)
+    local overseer = require("overseer")
+    local task = overseer.new_task({
       cmd = command,
       components = {
         {
@@ -265,6 +266,13 @@ require("lantern").setup({
       }
     })
 
+    task:subscribe("on_complete", function(_, status, _)
+      if status == "SUCCESS" then
+        callback(0)
+      else
+        callback(1)
+      end
+    end)
     task:start()
   end,
 })
