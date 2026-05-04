@@ -31,6 +31,7 @@ if status is-interactive
   set -g fish_color_quote brblack
   set -g fish_color_valid_path --underline normal
 
+  abbr --add c clear
   abbr --add cm chezmoi
   abbr --add e $EDITOR
   abbr --add g git
