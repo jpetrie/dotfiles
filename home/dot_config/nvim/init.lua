@@ -15,10 +15,10 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.wildmode = "longest:full"
 
 -- Completion
-vim.opt.completeopt = {"menuone", "noinsert"}
+vim.opt.completeopt = { "menuone", "noinsert" }
 
 -- Files and Paths
-vim.opt.wildignore = {"*.air", "*.d", "*.dia", "*.o"}
+vim.opt.wildignore = { "*.air", "*.d", "*.dia", "*.o" }
 
 -- Formatting
 vim.opt.formatoptions = "cro/qj"
@@ -35,7 +35,7 @@ vim.opt.tabstop = 2
 -- Line Handling
 vim.opt.breakindent = true
 vim.opt.linebreak = true
-vim.opt.showbreak="↳"
+vim.opt.showbreak = "↳"
 vim.opt.wrap = false
 
 -- Search
@@ -55,42 +55,60 @@ vim.opt.statusline = "%!v:lua.BuildStatusLine()"
 -- Commands
 
 -- Reveal the current buffer in the Finder.
-vim.api.nvim_create_user_command("Reveal", function() vim.system({"open", "-R", vim.api.nvim_buf_get_name(0)}) end, {})
+vim.api.nvim_create_user_command("Reveal", function() vim.system({ "open", "-R", vim.api.nvim_buf_get_name(0) }) end, {})
 
 -- Populate the quickfix list with TODO comments.
 vim.api.nvim_create_user_command("Todo", "silent grep! TODO: | copen", {})
+
+-- Close all buffers except the current.
+vim.api.nvim_create_user_command("Only", function(command)
+  -- While %bd|e# is a built-in way to accomplish this, it actually closes and reopens the current buffer, which means
+  -- that buffer needs to be unmodified. This approach leaves the current buffer alone.
+  local current = vim.api.nvim_get_current_buf()
+  for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buffer) and buffer ~= current then
+      if command.bang then
+        vim.cmd(buffer .. "bd!")
+      else
+        if not pcall(function() vim.cmd(buffer .. "bd") end) then
+          vim.notify("buffer " .. buffer .. " retained (modified)", vim.log.levels.WARN)
+        end
+      end
+    end
+  end
+end, {desc = "Close all buffers except current", bang = true})
 
 
 -- =====================================================================================================================
 -- Keymaps
 
 -- Edit init.lua.
-vim.keymap.set("n", "ev", ":e $MYVIMRC<CR>", {desc = "Edit init.lua"})
+vim.keymap.set("n", "ev", ":e $MYVIMRC<CR>", { desc = "Edit init.lua" })
 
-vim.keymap.set("i", "<C-space>", "<C-y>", {desc = "Accept current completion"})
-vim.keymap.set("i", "<C-j>", "<C-n>", {desc = "Select next completion"})
-vim.keymap.set("i", "<C-k>", "<C-p>", {desc = "Select prior completion"})
+vim.keymap.set("i", "<C-space>", "<C-y>", { desc = "Accept current completion" })
+vim.keymap.set("i", "<C-j>", "<C-n>", { desc = "Select next completion" })
+vim.keymap.set("i", "<C-k>", "<C-p>", { desc = "Select prior completion" })
 
 -- Jump to long lines.
-vim.keymap.set("n", "]ll", "/\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to next long line"})
-vim.keymap.set("n", "[ll", "?\\%>" .. vim.o.textwidth .. "v.\\+<CR>", {desc = "Jump to prior long line"})
+vim.keymap.set("n", "]ll", "/\\%>" .. vim.o.textwidth .. "v.\\+<CR>", { desc = "Jump to next long line" })
+vim.keymap.set("n", "[ll", "?\\%>" .. vim.o.textwidth .. "v.\\+<CR>", { desc = "Jump to prior long line" })
 
 -- Find references.
-vim.keymap.set("n", "qr", ":Refs<CR>", {desc = "Set quickfix to symbol references"})
+vim.keymap.set("n", "qr", ":Refs<CR>", { desc = "Set quickfix to symbol references" })
 
 -- Flip between file counterparts.
-vim.keymap.set("n", "<LEADER>a", ":Flip next<CR>", {desc = "Flip to the next counterpart"})
+vim.keymap.set("n", "<LEADER>a", ":Flip next<CR>", { desc = "Flip to the next counterpart" })
 
 -- Invoke Lantern tasks.
-vim.keymap.set("n", "<LEADER>k", function() require("lantern").clean() end, {desc = "Clean the current Lantern target"})
-vim.keymap.set("n", "<LEADER>b", function() require("lantern").build() end, {desc = "Build the current Lantern target"})
-vim.keymap.set("n", "<LEADER>r", function() require("lantern").run() end, {desc = "Run the current Lantern target"})
+vim.keymap.set("n", "<LEADER>k", function() require("lantern").clean() end, { desc = "Clean the current Lantern target" })
+vim.keymap.set("n", "<LEADER>b", function() require("lantern").build() end, { desc = "Build the current Lantern target" })
+vim.keymap.set("n", "<LEADER>r", function() require("lantern").run() end, { desc = "Run the current Lantern target" })
 
 -- Launch Telescope.
-vim.keymap.set("n", "<LEADER>of", ":Telescope find_files<CR>", {desc = "File files"})
-vim.keymap.set("n", "<LEADER>ob", ":Telescope buffers<CR>", {desc = "Find buffers"})
-vim.keymap.set("n", "<LEADER>fg", ":Telescope live_grep<CR>", {desc = "Find in files"})
-vim.keymap.set("n", "<LEADER>fh", ":Telescope help_tags<CR>", {desc = "Find in help"})
+vim.keymap.set("n", "<LEADER>of", ":Telescope find_files<CR>", { desc = "File files" })
+vim.keymap.set("n", "<LEADER>ob", ":Telescope buffers<CR>", { desc = "Find buffers" })
+vim.keymap.set("n", "<LEADER>fg", ":Telescope live_grep<CR>", { desc = "Find in files" })
+vim.keymap.set("n", "<LEADER>fh", ":Telescope help_tags<CR>", { desc = "Find in help" })
 
 -- Session management.
 vim.keymap.set("n", "<LEADER>ss", function() require("resession").save() end)
@@ -98,10 +116,10 @@ vim.keymap.set("n", "<LEADER>sl", function() require("resession").load() end)
 vim.keymap.set("n", "<LEADER>sd", function() require("resession").delete() end)
 
 -- Open the current buffer's directory in Oil.
-vim.keymap.set("n", "-", ":Oil<CR>", {desc = "Open parent directory"})
+vim.keymap.set("n", "-", ":Oil<CR>", { desc = "Open parent directory" })
 
 -- Format the current buffer.
-vim.keymap.set("n", "<LEADER>f", function() vim.lsp.buf.format() end, {desc = "Format the current buffer"})
+vim.keymap.set("n", "<LEADER>f", function() vim.lsp.buf.format() end, { desc = "Format the current buffer" })
 
 
 -- =====================================================================================================================
@@ -116,8 +134,8 @@ if tick_timer ~= nil then
   tick_timer:start(interval, interval, vim.schedule_wrap(function()
     local has_overseer, overseer = pcall(require, "overseer")
     if has_overseer then
-      local glyphs = {"·  ", "·· ", "···", " ··", "  ·", "   "}
-      local tasks = overseer.list_tasks({status = overseer.STATUS.RUNNING})
+      local glyphs = { "·  ", "·· ", "···", " ··", "  ·", "   " }
+      local tasks = overseer.list_tasks({ status = overseer.STATUS.RUNNING })
       if #tasks == 0 then
         tick_index = -1
         task_status = ""
@@ -161,25 +179,24 @@ function BuildStatusLine()
   return table.concat(parts, "")
 end
 
-
 -- =====================================================================================================================
 -- Language Support
 
 vim.lsp.config("*", {
-  root_markers = {".git"},
+  root_markers = { ".git" },
 })
 
 vim.lsp.config("cmake-language-server", {
-  cmd = {"cmake-language-server"},
-  root_markers = {"CMakePresets.json", ".git"},
-  filetypes = {"cmake"},
+  cmd = { "cmake-language-server" },
+  root_markers = { "CMakePresets.json", ".git" },
+  filetypes = { "cmake" },
 })
 
 vim.lsp.config("lua-language-server", {
-  cmd = {"lua-language-server"},
-  root_markers = {".luarc.json", ".luarc.jsonc"},
-  filetypes = {"lua"},
-  settings =  {
+  cmd = { "lua-language-server" },
+  root_markers = { ".luarc.json", ".luarc.jsonc" },
+  filetypes = { "lua" },
+  settings = {
     Lua = {
       runtime = {
         version = "LuaJIT",
@@ -195,36 +212,42 @@ vim.lsp.config("lua-language-server", {
   },
 })
 
-vim.lsp.enable({"cmake-language-server", "lua-language-server"})
+vim.lsp.enable({ "cmake-language-server", "lua-language-server" })
 
-vim.treesitter.language.register("cpp", {"cpp"})
+vim.treesitter.language.register("cpp", { "cpp" })
 
 -- Only start clangd when a suitable Lantern project exists.
-vim.api.nvim_create_autocmd("FileType", {pattern = "cpp", callback = function(_)
-  local has_lantern, lantern = pcall(require, "lantern")
-  if has_lantern and lantern.configuration() ~= nil then
-    -- Try to launch a version of clangd installed by Homebrew, as it should be newer. Otherwise fall back to the
-    -- version installed by the OS.
-    local clangd_path = "/opt/homebrew/opt/llvm/bin/clangd"
-    if not vim.fn.executable(clangd_path) then
-      clangd_path = "clangd"
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cpp",
+  callback = function(_)
+    local has_lantern, lantern = pcall(require, "lantern")
+    if has_lantern and lantern.configuration() ~= nil then
+      -- Try to launch a version of clangd installed by Homebrew, as it should be newer. Otherwise fall back to the
+      -- version installed by the OS.
+      local clangd_path = "/opt/homebrew/opt/llvm/bin/clangd"
+      if not vim.fn.executable(clangd_path) then
+        clangd_path = "clangd"
+      end
+
+      vim.lsp.start({
+        name = "clangd",
+
+        -- Passing --log=error causes clangd to only write actual errors to stderr (by default, it will write pretty much
+        -- everything to stderr, which bloats the LSP log very quickly).
+        cmd = { clangd_path, "--log=error", "--compile-commands-dir=" .. lantern.configuration().directory },
+        root_dir = lantern.project().directory,
+      })
     end
-
-    vim.lsp.start({
-      name = "clangd",
-
-      -- Passing --log=error causes clangd to only write actual errors to stderr (by default, it will write pretty much
-      -- everything to stderr, which bloats the LSP log very quickly).
-      cmd = {clangd_path, "--log=error", "--compile-commands-dir=" .. lantern.configuration().directory},
-      root_dir = lantern.project().directory,
-    })
   end
-end})
+})
 
-vim.api.nvim_create_autocmd("LspAttach", {callback = function(_)
-  -- When a language server is active, replace the built-in gd keymap.
-  vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", {desc = "Go to the definition of the symbol under the cursor"})
-end })
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(_)
+    -- When a language server is active, replace the built-in gd keymap.
+    vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>",
+      { desc = "Go to the definition of the symbol under the cursor" })
+  end
+})
 
 -- =====================================================================================================================
 -- Diagnostics
@@ -248,7 +271,7 @@ vim.diagnostic.config({
 -- Plugin Setup
 
 require("lantern").setup({
-  exclude_binary_directory_patterns = {"Xcode"},
+  exclude_binary_directory_patterns = { "Xcode" },
   save_before_task = true,
   run_task = function(command, callback)
     local overseer = require("overseer")
@@ -307,7 +330,7 @@ require("resession").setup({
   buf_filter = function(buffer)
     -- Do not save any of the filetypes in this list with the session, defer to the default implementation for
     -- everything else.
-    local skip_filetypes = {"gitcommit", "help"}
+    local skip_filetypes = { "gitcommit", "help" }
     if vim.list_contains(skip_filetypes, vim.bo[buffer].filetype) then
       return false
     end
@@ -320,32 +343,35 @@ require("telescope").load_extension("fzy_native")
 
 require("turnip").setup({
   custom_groups = {
-    ["@keyword.doxygen"] = {fg = "green_faint"},
-    ["@keyword.modifier.doxygen"] = {link = "Comment"},
-    ["@punctuation.bracket.doxygen"] = {fg = "gray_slate"},
+    ["@keyword.doxygen"] = { fg = "green_faint" },
+    ["@keyword.modifier.doxygen"] = { link = "Comment" },
+    ["@punctuation.bracket.doxygen"] = { fg = "gray_slate" },
   }
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {callback = function(_)
-  local resession = require("resession")
-  local lantern = require("lantern")
-  lantern.scan()
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function(_)
+    local resession = require("resession")
+    local lantern = require("lantern")
+    lantern.scan()
 
-  -- If Neovim started with no arguments and without reading from stdin, try to load the session for the active project
-  -- if one exists.
-  if vim.fn.argc(-1) == 0 and not vim.g.using_stdin and lantern.project() ~= nil then
-    resession.load(lantern.project().name, {silence_errors = true})
+    -- If Neovim started with no arguments and without reading from stdin, try to load the session for the active project
+    -- if one exists.
+    if vim.fn.argc(-1) == 0 and not vim.g.using_stdin and lantern.project() ~= nil then
+      resession.load(lantern.project().name, { silence_errors = true })
+    end
   end
-end})
+})
 
-vim.api.nvim_create_autocmd("VimLeavePre", {callback = function(_)
-  -- If an active session exists, save it.
-  local resession = require("resession")
-  local session = resession.get_current_session_info()
-  if session ~= nil then
-    resession.save(session.name)
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function(_)
+    -- If an active session exists, save it.
+    local resession = require("resession")
+    local session = resession.get_current_session_info()
+    if session ~= nil then
+      resession.save(session.name)
+    end
   end
-end})
+})
 
 vim.cmd("colorscheme turnip")
-
