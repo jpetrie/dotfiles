@@ -168,7 +168,7 @@ function BuildStatusLine()
 
     local listed = 0
     for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.api.nvim_buf_is_loaded(buffer) then
+      if vim.bo[buffer].buflisted then
         listed = listed + 1
       end
     end
