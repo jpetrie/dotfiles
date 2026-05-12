@@ -126,7 +126,7 @@ vim.keymap.set("n", "<LEADER>f", function() vim.lsp.buf.format() end, { desc = "
 -- Statusline
 
 -- Run a background timer to periodically update the task spinner and redraw the statusline.
-local task_status = ""
+local task_status = "0󱥸"
 local tick_index = 0
 local tick_timer = vim.uv.new_timer()
 if tick_timer ~= nil then
@@ -134,19 +134,27 @@ if tick_timer ~= nil then
   tick_timer:start(interval, interval, vim.schedule_wrap(function()
     local has_overseer, overseer = pcall(require, "overseer")
     if has_overseer then
-      local glyphs = { "·  ", "·· ", "···", " ··", "  ·", "   " }
-      local tasks = overseer.list_tasks({ status = overseer.STATUS.RUNNING })
+      local glyphs = {"󱑖", "󱑋", "󱑌", "󱑍", "󱑎", "󱑏", "󱑐", "󱑑", "󱑒", "󱑓", "󱑔", "󱑕"}
+      local tasks = overseer.list_tasks({status = overseer.STATUS.RUNNING})
       if #tasks == 0 then
         tick_index = -1
-        task_status = ""
+        task_status = "0󱥸"
       else
         tick_index = (tick_index + 1) % #glyphs
-        task_status = "[" .. #tasks .. glyphs[1 + tick_index] .. "] "
+        task_status = #tasks .. glyphs[1 + tick_index]
       end
 
       vim.cmd("redrawstatus")
     end
   end))
+end
+
+function SLShowBuffers()
+  vim.cmd("Telescope buffers")
+end
+
+function SLShowTasks()
+  vim.cmd("OverseerToggle")
 end
 
 function BuildStatusLine()
@@ -157,7 +165,15 @@ function BuildStatusLine()
 
   if window == vim.api.nvim_get_current_win() then
     table.insert(parts, "%l:%v%=")
-    table.insert(parts, task_status)
+
+    local listed = 0
+    for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.api.nvim_buf_is_loaded(buffer) then
+        listed = listed + 1
+      end
+    end
+
+    table.insert(parts, "[%@v:lua.SLShowBuffers@" .. listed .. "%X %@v:lua.SLShowTasks@" .. task_status .. "%X] ")
 
     local has_lantern, lantern = pcall(require, "lantern")
     if has_lantern then
