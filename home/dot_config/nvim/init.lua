@@ -232,6 +232,11 @@ vim.lsp.enable({ "cmake-language-server", "lua-language-server" })
 
 vim.treesitter.language.register("cpp", { "cpp" })
 
+-- Start treesitter syntax highlighting (if possible).
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function() pcall(vim.treesitter.start) end,
+})
+
 -- Only start clangd when a suitable Lantern project exists.
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cpp",
