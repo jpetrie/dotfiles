@@ -1,9 +1,9 @@
 [submodule "home/dot_config/nvim/pack/plugins/external_start/flip"]
 	path = home/dot_config/nvim/pack/plugins/external_start/flip
-	url = git@github.com:jpetrie/flip.git
+	url = https://github.com/jpetrie/flip.git
 [submodule "home/dot_config/nvim/pack/plugins/external_start/lantern"]
 	path = home/dot_config/nvim/pack/plugins/external_start/lantern
-	url = git@github.com:jpetrie/lantern.git
+	url = https://github.com/jpetrie/lantern.git
 [submodule "home/dot_config/nvim/pack/plugins/external_start/mini.completion"]
 	path = home/dot_config/nvim/pack/plugins/external_start/mini.completion
 	url = https://github.com/nvim-mini/mini.completion.git
@@ -30,4 +30,4 @@
 	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
 [submodule "home/dot_config/nvim/pack/plugins/external_start/turnip"]
 	path = home/dot_config/nvim/pack/plugins/external_start/turnip
-	url = git@github.com:jpetrie/turnip.git
+	url = https://github.com/jpetrie/turnip.git
