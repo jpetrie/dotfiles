@@ -1,15 +1,15 @@
 [user]
   name = Josh Petrie
   email = josh@joshpetrie.net
-  signingkey = ~/.ssh/id_ed25519
+  signingkey = {{.chezmoi.destDir}}/.ssh/id_ed25519
 [core]
   editor = nvim
-  excludesfile = ~/.gitignore
+  excludesfile = {{.chezmoi.destDir}}/.gitignore
 [init]
   defaultBranch = main
 [commit]
   gpgsign = true
-  template = ~/.gitmessage
+  template = {{.chezmoi.destDir}}/.gitmessage
 [tag]
   gpgsign = true
 [diff]

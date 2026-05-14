@@ -1,1 +1,13 @@
 **/.DS_Store
+
+{{if ne .chezmoi.os "darwin"}}
+.bin
+.chezmoiscripts/macos/**
+.config/fish/**
+.config/ghostty/**
+.hushlogin
+{{end}}
+
+{{if ne .chezmoi.os "windows"}}
+.chezmoiscripts/windows/**
+{{end}}

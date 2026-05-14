@@ -1,0 +1,8 @@
+# This is a "run_" script (versus "run_onchange_") in order to allow chezmoi to recreate the symlink if it is ever
+# deleted for any reason, since the link itself isn't managed by chezmoi.
+#
+# Note that creating a symbolic link without elevation requires developer mode to have been previously enabled.
+
+if (-not (Test-Path $env:LOCALAPPDATA/nvim)) {
+  New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA/nvim -Target {{.chezmoi.workingTree}}/home/dot_config/nvim/
+}
