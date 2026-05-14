@@ -31,6 +31,8 @@
   changed = brightblack
 [gpg]
   format = ssh
+[gpg "ssh"]
+  allowedSignersFile = {{.chezmoi.destDir}}/.ssh/allowed_signers
 [alias]
   d = difftool
   l = log --oneline --graph
