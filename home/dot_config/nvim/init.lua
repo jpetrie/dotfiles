@@ -1,3 +1,6 @@
+-- Set packpath to import plugins from chezmoi.
+require("plugins")
+
 -- =====================================================================================================================
 -- Options
 vim.g.mapleader = " "
