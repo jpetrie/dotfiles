@@ -1,6 +1,7 @@
 set -gx CMAKE_BUILD_PARALLEL_LEVEL 8
 set -gx CMAKE_EXPORT_COMPILE_COMMANDS 1
 set -gx EDITOR nvim
+set -gx EZA_CONFIG_DIR "$HOME/.config/eza"
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx PROJECTS "$HOME/Developer"

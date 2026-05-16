@@ -1,0 +1,97 @@
+filekinds:
+  normal:
+    foreground: Default
+  directory:
+    foreground: Blue
+  symlink:
+    foreground: Default
+  executable:
+    foreground: Yellow
+    is_bold: false
+size:
+  number_byte:
+    foreground: White
+    is_bold: false
+  number_kilo:
+    foreground: White
+    is_bold: false
+  number_mega:
+    foreground: White
+    is_bold: false
+  number_giga:
+    foreground: White
+    is_bold: false
+  number_huge:
+    foreground: White
+    is_bold: false
+date:
+  foreground: White
+perms:
+  attribute:
+    foreground: DarkGray
+  user_read:
+    foreground: Magenta
+    is_bold: false
+    is_underline: false
+  user_write:
+    foreground: LightMagenta
+    is_bold: false
+    is_underline: false
+  user_execute_file:
+    foreground: LightCyan
+    is_bold: false
+    is_underline: false
+  user_execute_other:
+    foreground: LightCyan
+    is_bold: false
+    is_underline: false
+  group_read:
+    foreground: Magenta
+    is_bold: false
+    is_underline: false
+  group_write:
+    foreground: LightMagenta
+    is_bold: false
+    is_underline: false
+  group_execute:
+    foreground: LightCyan
+    is_bold: false
+    is_underline: false
+  other_read:
+    foreground: Magenta
+    is_bold: false
+    is_underline: false
+  other_write:
+    foreground: LightMagenta
+    is_bold: false
+    is_underline: false
+  other_execute:
+    foreground: LightCyan
+    is_bold: false
+    is_underline: false
+users:
+  user_you:
+    foreground: Green
+    is_bold: false
+  user_other:
+    foreground: Green
+    is_bold: false
+  user_root:
+    foreground: LightGreen
+    is_bold: true
+  group_yours:
+    foreground: Green
+    is_bold: false
+  group_other:
+    foreground: Green
+    is_bold: false
+  group_root:
+    foreground: LightGreen
+    is_bold: true
+broken_symlink:
+    foreground: Red
+    is_underline: false
+broken_path_overlay:
+    foreground: Red
+    is_underline: false
+
