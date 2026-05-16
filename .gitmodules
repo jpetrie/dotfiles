@@ -37,3 +37,9 @@
 [submodule "nvim/queries/nvim-treesitter-queries-cpp"]
 	path = nvim/queries/nvim-treesitter-queries-cpp
 	url = https://github.com/neovim-treesitter/nvim-treesitter-queries-cpp.git
+[submodule "nvim/parsers/tree-sitter-doxygen"]
+	path = nvim/parsers/tree-sitter-doxygen
+	url = https://github.com/tree-sitter-grammars/tree-sitter-doxygen.git
+[submodule "nvim/queries/nvim-treesitter-queries-doxygen"]
+	path = nvim/queries/nvim-treesitter-queries-doxygen
+	url = https://github.com/neovim-treesitter/nvim-treesitter-queries-doxygen.git
