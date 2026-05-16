@@ -6,17 +6,6 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx PROJECTS "$HOME/Developer"
 set -gx VISUAL $EDITOR
 
-# gp: Quickly jump to project directories.
-function gp -a project;
-  set destination "$PROJECTS/$project"
-  if test -d $destination
-    cd $destination
-  else
-    echo "Not a project directory: $destination"
-    return 1
-  end
-end
-
 if status is-interactive
   # Turn off the welcome message.
   set fish_greeting
