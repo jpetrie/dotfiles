@@ -3,6 +3,6 @@ font-feature = -calt, -dlig, -liga
 
 theme = light:light,dark:dark
 
-window-width = 160
-window-height = 40
+window-width = 175
+window-height = 50
 
