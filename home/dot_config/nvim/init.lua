@@ -1,6 +1,11 @@
 -- Set packpath to import plugins from chezmoi.
 require("plugins")
 
+-- Add locally-developed plugins to the runtime path.
+vim.opt.runtimepath:append("~/Developer/Flip")
+vim.opt.runtimepath:append("~/Developer/Lantern")
+vim.opt.runtimepath:append("~/Developer/Turnip")
+
 -- =====================================================================================================================
 -- Options
 vim.g.mapleader = " "

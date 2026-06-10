@@ -1,9 +1,3 @@
-[submodule "home/dot_config/nvim/pack/plugins/external_start/flip"]
-	path = nvim/pack/plugins/start/flip
-	url = https://github.com/jpetrie/flip.git
-[submodule "home/dot_config/nvim/pack/plugins/external_start/lantern"]
-	path = nvim/pack/plugins/start/lantern
-	url = https://github.com/jpetrie/lantern.git
 [submodule "home/dot_config/nvim/pack/plugins/external_start/mini.completion"]
 	path = nvim/pack/plugins/start/mini.completion
 	url = https://github.com/nvim-mini/mini.completion.git
@@ -28,9 +22,6 @@
 [submodule "home/dot_config/nvim/pack/plugins/external_start/telescope-fzy-native.nvim"]
 	path = nvim/pack/plugins/start/telescope-fzy-native.nvim
 	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
-[submodule "home/dot_config/nvim/pack/plugins/external_start/turnip"]
-	path = nvim/pack/plugins/start/turnip
-	url = https://github.com/jpetrie/turnip.git
 [submodule "nvim/parsers/tree-sitter-cpp"]
 	path = nvim/parsers/tree-sitter-cpp
 	url = https://github.com/tree-sitter/tree-sitter-cpp.git
