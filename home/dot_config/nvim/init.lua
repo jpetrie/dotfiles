@@ -110,7 +110,8 @@ vim.keymap.set("n", "<LEADER>a", ":Flip next<CR>", { desc = "Flip to the next co
 -- Invoke Lantern tasks.
 vim.keymap.set("n", "<LEADER>k", function() require("lantern").clean() end, { desc = "Clean the current Lantern target" })
 vim.keymap.set("n", "<LEADER>b", function() require("lantern").build() end, { desc = "Build the current Lantern target" })
-vim.keymap.set("n", "<LEADER>r", function() require("lantern").run() end, { desc = "Run the current Lantern target" })
+vim.keymap.set("n", "<LEADER>r", ":DapNew<CR>", { desc = "Debug the current Lantern target" })
+vim.keymap.set("n", "<LEADER>R", function() require("lantern").run() end, { desc = "Run the current Lantern target" })
 
 -- Control the debugger.
 vim.keymap.set("n", "<LEADER>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle a breakpoint at the current line" })
