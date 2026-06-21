@@ -115,6 +115,10 @@ vim.keymap.set("n", "<LEADER>R", function() require("lantern").run() end, { desc
 
 -- Control the debugger.
 vim.keymap.set("n", "<LEADER>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle a breakpoint at the current line" })
+vim.keymap.set("n", "<UP>", ":DapContinue<CR>", { desc = "Debugger continue" })
+vim.keymap.set("n", "<DOWN>", ":DapStepOver<CR>", { desc = "Debugger step over" })
+vim.keymap.set("n", "<LEFT>", ":DapStepOut<CR>", { desc = "Debugger step out" })
+vim.keymap.set("n", "<RIGHT>", ":DapStepInto<CR>", { desc = "Debugger step into" })
 
 -- Launch Telescope.
 vim.keymap.set("n", "<LEADER>of", ":Telescope find_files<CR>", { desc = "File files" })
