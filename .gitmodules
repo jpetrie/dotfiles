@@ -34,3 +34,12 @@
 [submodule "nvim/queries/nvim-treesitter-queries-doxygen"]
 	path = nvim/queries/nvim-treesitter-queries-doxygen
 	url = https://github.com/neovim-treesitter/nvim-treesitter-queries-doxygen.git
+[submodule "nvim/pack/plugins/start/nvim-dap"]
+	path = nvim/pack/plugins/start/nvim-dap
+	url = https://codeberg.org/mfussenegger/nvim-dap.git
+[submodule "nvim/pack/plugins/start/nvim-dap-ui"]
+	path = nvim/pack/plugins/start/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui.git
+[submodule "nvim/pack/plugins/start/nvim-nio"]
+	path = nvim/pack/plugins/start/nvim-nio
+	url = https://github.com/nvim-neotest/nvim-nio.git

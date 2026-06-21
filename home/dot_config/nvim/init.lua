@@ -112,6 +112,9 @@ vim.keymap.set("n", "<LEADER>k", function() require("lantern").clean() end, { de
 vim.keymap.set("n", "<LEADER>b", function() require("lantern").build() end, { desc = "Build the current Lantern target" })
 vim.keymap.set("n", "<LEADER>r", function() require("lantern").run() end, { desc = "Run the current Lantern target" })
 
+-- Control the debugger.
+vim.keymap.set("n", "<LEADER>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle a breakpoint at the current line" })
+
 -- Launch Telescope.
 vim.keymap.set("n", "<LEADER>of", ":Telescope find_files<CR>", { desc = "File files" })
 vim.keymap.set("n", "<LEADER>ob", ":Telescope buffers<CR>", { desc = "Find buffers" })
@@ -298,6 +301,50 @@ vim.diagnostic.config({
 
 -- =====================================================================================================================
 -- Plugin Setup
+
+local dap = require("dap")
+dap.adapters.lldb = {
+  type = "executable",
+  command = "/Applications/Xcode.app/Contents/Developer/usr/bin/lldb-dap",
+  name = "lldb",
+}
+
+dap.configurations.cpp = {{
+  name = "Launch",
+  type = "lldb",
+  request = "launch",
+  program = function()
+    local has_lantern, lantern = pcall(require, "lantern")
+    if has_lantern and lantern.target() ~= nil then
+      local paths = lantern.target().artifacts
+      if #paths > 0 then
+        return paths[1]
+      end
+    end
+
+    return dap.ABORT
+  end,
+  cwd = "${workspaceFolder}",
+  stopOnEntry = false,
+  args = {},
+}}
+
+local dapui = require("dapui")
+dapui.setup()
+
+-- Automatically open and close the debug UI.
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 
 require("lantern").setup({
   exclude_binary_directory_patterns = { "Xcode" },
