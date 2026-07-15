@@ -341,7 +341,29 @@ vim.fn.sign_define("DapStopped", {text="", texthl="", linehl="", numhl=""})
 vim.fn.sign_define("DapBreakpointRejected", {text="󰌖", texthl="", linehl="", numhl=""})
 
 local dapui = require("dapui")
-dapui.setup()
+dapui.setup({
+  layouts = {{
+    elements = {{
+      id = "scopes",
+      size = 0.33,
+    }, {
+      id = "watches",
+      size = 0.33,
+    }, {
+      id = "repl",
+      size = 0.33,
+    }},
+    position = "bottom",
+    size = 15,
+  }, {
+    elements = {{
+      id = "stacks",
+      size = 1.0,
+    }},
+    position = "left",
+    size = 40,
+  }},
+})
 
 -- Automatically open and close the debug UI.
 dap.listeners.before.attach.dapui_config = function()
