@@ -372,7 +372,12 @@ require("lantern").setup({
           open_on_match = true,
           close = true,
         },
-        "default"
+        "on_exit_set_status",
+        "on_complete_notify",
+        {
+          "on_complete_dispose",
+          timeout = 60,
+        }
       }
     })
 
