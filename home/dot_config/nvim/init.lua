@@ -74,7 +74,7 @@ vim.api.nvim_create_user_command("Only", function(command)
   -- that buffer needs to be unmodified. This approach leaves the current buffer alone.
   local current = vim.api.nvim_get_current_buf()
   for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(buffer) and buffer ~= current then
+    if vim.api.nvim_buf_is_loaded(buffer) and vim.fn.buflisted(buffer) ~= 0 and buffer ~= current then
       if command.bang then
         vim.cmd(buffer .. "bd!")
       else
