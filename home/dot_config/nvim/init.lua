@@ -46,6 +46,9 @@ vim.opt.linebreak = true
 vim.opt.showbreak = "↳"
 vim.opt.wrap = false
 
+-- Mouse
+vim.opt.mousescroll = {"ver:1", "hor:5"}
+
 -- Search
 vim.opt.hlsearch = false
 
