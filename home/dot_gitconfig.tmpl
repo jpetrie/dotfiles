@@ -5,6 +5,9 @@
 [core]
   editor = nvim
   excludesfile = {{.chezmoi.destDir}}/.gitignore
+  {{- if eq .chezmoi.os "windows"}}
+  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+  {{- end}}
 [init]
   defaultBranch = main
 [commit]
